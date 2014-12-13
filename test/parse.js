@@ -25,6 +25,14 @@ test('parsing point, segment, line, and circle literals', function(t) {
   t.end();
 });
 
+test('"draw a ____"', function(t) {
+  var result = parser.parse('draw a circle centered at a containing b');
+  t.same(result, [ { type: 'circle', center: 'a', boundaryPoint: 'b', 'name': null } ]);
+  result = parser.parse('draw a circle centered at a containing b and call it x');
+  t.same(result, [ { type: 'circle', center: 'a', boundaryPoint: 'b', 'name': 'x' } ]);
+  t.end();
+})
+
 test('parsing intersections', function(t) {
   try {
     var result = parser.parse('\

@@ -10,14 +10,14 @@ start
 
 decl
 = (let?) name:varname be obj:object [.\n]* { return withName(obj, name); }
-  / draw a obj:object and call it name:varname [.\n]* { return withName(obj, name); }
+  / draw obj:object name:(and call it name:varname {return name;})? [.\n]* { return withName(obj, name); }
 
 object = point / object2d
 
 point
 = point_literal / intersection
 
-point_literal = (the? t_point)? [ ]*"("[ ]* x:number [ ]*","[ ]* y:number [ ]*")"[ ]* 
+point_literal = ((the/a)? t_point)? [ ]*"("[ ]* x:number [ ]*","[ ]* y:number [ ]*")"[ ]* 
   { return {type: 'point', x:x, y:y}; }
 
 object2d = circle / line / segment
