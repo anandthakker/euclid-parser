@@ -1,6 +1,6 @@
 {
   "name": "euclid-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Parse geometry proof language for diagram-building instructions.",
   "main": "index.js",
   "scripts": {
