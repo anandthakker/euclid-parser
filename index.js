@@ -989,7 +989,7 @@ module.exports = (function() {
                       s7 = peg$parsevarname();
                       if (s7 !== peg$FAILED) {
                         peg$reportedPos = s3;
-                        s4 = peg$c18(s5, s7);
+                        s4 = peg$c20(s5, s7);
                         s3 = s4;
                       } else {
                         peg$currPos = s3;

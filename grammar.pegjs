@@ -36,7 +36,7 @@ line:(
 segment = (the / a) t_segment
 seg:(
   (from p1:varname to p2:varname { return {type: 'segment', p1: p1, p2: p2 }; })
-  / (containing/(determined by)/([ ]*"with endpoints"[ ]*) p1:varname and p2:varname { return {type: 'line', p1: p1, p2: p2 }; })
+  / (containing/(determined by)/([ ]*"with endpoints"[ ]*) p1:varname and p2:varname { return {type: 'segment', p1: p1, p2: p2 }; })
   ) { return seg; }
   
 
