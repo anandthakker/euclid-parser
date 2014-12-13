@@ -1,0 +1,31 @@
+{
+  "name": "euclid-parser",
+  "version": "1.0.0",
+  "description": "Parse geometry proof language for diagram-building instructions.",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "pegjs grammar.pegjs index.js",
+    "pretest": "pegjs grammar.pegjs index.js",
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anandthakker/euclid-parser.git"
+  },
+  "keywords": [
+    "geometry",
+    "diagram",
+    "parse",
+    "proof"
+  ],
+  "author": "Anand Thakker <vestibule@anandthakker.net> (http://anandthakker.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anandthakker/euclid-parser/issues"
+  },
+  "homepage": "https://github.com/anandthakker/euclid-parser",
+  "devDependencies": {
+    "pegjs": "^0.8.0",
+    "tape": "^3.0.3"
+  }
+}
