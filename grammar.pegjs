@@ -96,7 +96,7 @@ lineorseg = 'line segment'i/'segment'i/line:'line'i
 two_points =
 'from'i _ p1:point _ 'to'i _ p2:point { return [p1,p2]; }
 /
-(through/'determined by'i/'between'i) _
+(through/'determined by'i/'between'i/'joining'i/'with endpoints'i) _
 p1:point ((_ 'and'i _)/(s*','s*)) p2:point { return [p1, p2]; }
 
 

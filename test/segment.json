@@ -155,5 +155,43 @@
       "column": 5
     },
     "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "segment joining a and b",
+      "line": 8,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "segment with endpoints a and b",
+      "line": 9,
+      "column": 5
+    },
+    "name": "g"
   }
 ]

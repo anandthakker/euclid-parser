@@ -5,3 +5,5 @@ g = the segment containing a and b
 g = the segment determined by a and b
 g = segment between a and b
 g = segment through (10,10),(10,20)
+g = segment joining a and b
+g = segment with endpoints a and b

@@ -10,8 +10,10 @@ function testFor(basename) {
   return function(t) {
     var result = parser.parse(fs.readFileSync(require.resolve('./'+basename+'.txt'), {encoding: 'utf8'}));
     var expected = JSON.parse(fs.readFileSync(require.resolve('./'+basename+'.json'), {encoding: 'utf8'}));
-    t.same(result, expected);
-    t.end();
+    t.plan(expected.length);
+    for(var i = 0; i < expected.length; i++) {
+      t.same(result[i], expected[i]);
+    }
   }
 }    
 
