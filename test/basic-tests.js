@@ -16,8 +16,13 @@ function testFor(basename) {
 }    
 
 test('parsing point declarations', testFor('point'));
-test.only('parsing circle declarations', testFor('circle'));
+test('parsing circle declarations', testFor('circle'));
 test('parsing line declrataions', testFor('line'));
 test('parsing line segment declarations', testFor('segment'));
 test('parsing intersection declarations', testFor('intersection'));
 test('parsing comments and skipping blank lines', testFor('comment'));
+
+test('declarations can end with a period', function(t) {
+  t.doesNotThrow(function() {parser.parse('let a = (1,0).');})
+  t.end();
+});

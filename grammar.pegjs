@@ -29,10 +29,10 @@ declaration_list = head:declaration tail:([\n ]+ d:declaration {return d;})*
 declaration =
 comment
 /
-('let'i _)? name:variable _ ('be'i/'equal'i/'=') _ obj:object_literal 
+('let'i _)? name:variable _ ('be'i/'equal'i/'=') _ obj:object_literal [ ]*'.'?
 { return named(obj, name) }
 /
-'draw'i _ obj:object_literal name:(_ name:called {return name;})?
+'draw'i _ obj:object_literal name:(_ name:called {return name;})? [ ]*'.'?
 { return named(obj, name) }
 
 comment = '#' s? val:$([^\n]*) { return {type: 'comment', value: val} }
