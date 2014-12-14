@@ -1,0 +1,57 @@
+[
+  {
+    "type": "point",
+    "x": 1,
+    "y": 2,
+    "source": {
+      "text": "(1,2)",
+      "line": 1,
+      "column": 9
+    },
+    "name": "a"
+  },
+  {
+    "type": "point",
+    "x": 2,
+    "y": 3,
+    "source": {
+      "text": "(2,3)",
+      "line": 2,
+      "column": 10
+    },
+    "name": "b"
+  },
+  {
+    "type": "point",
+    "x": 3,
+    "y": 4,
+    "source": {
+      "text": "(3,4)",
+      "line": 3,
+      "column": 13
+    },
+    "name": "c"
+  },
+  {
+    "type": "point",
+    "x": 4,
+    "y": 5,
+    "source": {
+      "text": "point (4,5)",
+      "line": 4,
+      "column": 5
+    },
+    "name": "d"
+  },
+  {
+    "type": "point",
+    "x": 5,
+    "y": 6,
+    "source": {
+      "text": "the point (5, 6)",
+      "line": 5,
+      "column": 5
+    },
+    "name": "e"
+  }
+]

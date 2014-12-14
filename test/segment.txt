@@ -1,0 +1,7 @@
+g = a segment from a to b
+g = a segment from (1,2) to (3, 2)
+g = the segment through a and b
+g = the segment containing a and b
+g = the segment determined by a and b
+g = segment between a and b
+g = segment through (10,10),(10,20)

@@ -1,0 +1,7 @@
+x = the intersection of circle a and line b
+x = the intersection of segment c-d and segment d-e
+x = the intersection of foo, bar
+
+y = the intersection of circle a and line b that isn't x
+y = the intersection of circle a and line b that is not x
+y = the intersection of circle a and line b that is on line L

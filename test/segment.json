@@ -1,0 +1,159 @@
+[
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "a segment from a to b",
+      "line": 1,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "x": 1,
+        "y": 2,
+        "source": {
+          "text": "(1,2)",
+          "line": 2,
+          "column": 20
+        }
+      },
+      {
+        "type": "point",
+        "x": 3,
+        "y": 2,
+        "source": {
+          "text": "(3, 2)",
+          "line": 2,
+          "column": 29
+        }
+      }
+    ],
+    "source": {
+      "text": "a segment from (1,2) to (3, 2)",
+      "line": 2,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the segment through a and b",
+      "line": 3,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the segment containing a and b",
+      "line": 4,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the segment determined by a and b",
+      "line": 5,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "segment between a and b",
+      "line": 6,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "segment",
+    "points": [
+      {
+        "type": "point",
+        "x": 10,
+        "y": 10,
+        "source": {
+          "text": "(10,10)",
+          "line": 7,
+          "column": 21
+        }
+      },
+      {
+        "type": "point",
+        "x": 10,
+        "y": 20,
+        "source": {
+          "text": "(10,20)",
+          "line": 7,
+          "column": 29
+        }
+      }
+    ],
+    "source": {
+      "text": "segment through (10,10),(10,20)",
+      "line": 7,
+      "column": 5
+    },
+    "name": "g"
+  }
+]

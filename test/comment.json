@@ -1,0 +1,10 @@
+[
+  {
+    "type": "comment",
+    "value": "this is a comment"
+  },
+  {
+    "type": "comment",
+    "value": "this is another one, after some blank lines."
+  }
+]

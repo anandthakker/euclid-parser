@@ -1,0 +1,5 @@
+let a = (1,2)
+let b be (2,3)
+let c equal (3,4)
+d = point (4,5)
+e = the point (5, 6)

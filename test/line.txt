@@ -1,0 +1,7 @@
+g = a line from a to b
+g = a line from (1,2) to (3, 2)
+g = the line through a and b
+g = the line containing a and b
+g = the line determined by a and b
+g = line between a and b
+g = line through (10,10),(10,20)

@@ -1,0 +1,94 @@
+[
+  {
+    "type": "circle",
+    "source": {
+      "text": "circle through (2,3) centered at a",
+      "line": 1,
+      "column": 6
+    },
+    "boundaryPoint": {
+      "type": "point",
+      "x": 2,
+      "y": 3,
+      "source": {
+        "text": "(2,3)",
+        "line": 1,
+        "column": 21
+      }
+    },
+    "center": {
+      "type": "point",
+      "name": "a"
+    },
+    "name": null
+  },
+  {
+    "type": "circle",
+    "source": {
+      "text": "the circle centered at (2,3) through b",
+      "line": 2,
+      "column": 9
+    },
+    "center": {
+      "type": "point",
+      "x": 2,
+      "y": 3,
+      "source": {
+        "text": "(2,3)",
+        "line": 2,
+        "column": 32
+      }
+    },
+    "boundaryPoint": {
+      "type": "point",
+      "name": "b"
+    },
+    "name": "f"
+  },
+  {
+    "type": "circle",
+    "source": {
+      "text": "a circle containing (2,3) centered at a",
+      "line": 3,
+      "column": 6
+    },
+    "boundaryPoint": {
+      "type": "point",
+      "x": 2,
+      "y": 3,
+      "source": {
+        "text": "(2,3)",
+        "line": 3,
+        "column": 26
+      }
+    },
+    "center": {
+      "type": "point",
+      "name": "a"
+    },
+    "name": null
+  },
+  {
+    "type": "circle",
+    "source": {
+      "text": "a circle centered at (2,3) containing b",
+      "line": 4,
+      "column": 5
+    },
+    "center": {
+      "type": "point",
+      "x": 2,
+      "y": 3,
+      "source": {
+        "text": "(2,3)",
+        "line": 4,
+        "column": 26
+      }
+    },
+    "boundaryPoint": {
+      "type": "point",
+      "name": "b"
+    },
+    "name": "f"
+  }
+]

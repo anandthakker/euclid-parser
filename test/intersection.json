@@ -1,0 +1,158 @@
+[
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "circle",
+        "name": "a"
+      },
+      {
+        "type": "line",
+        "name": "b"
+      }
+    ],
+    "which": null,
+    "source": {
+      "text": "the intersection of circle a and line b",
+      "line": 1,
+      "column": 5
+    },
+    "name": "x"
+  },
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "line",
+        "points": [
+          {
+            "type": "point",
+            "name": "c"
+          },
+          {
+            "type": "point",
+            "name": "d"
+          }
+        ]
+      },
+      {
+        "type": "line",
+        "points": [
+          {
+            "type": "point",
+            "name": "d"
+          },
+          {
+            "type": "point",
+            "name": "e"
+          }
+        ]
+      }
+    ],
+    "which": null,
+    "source": {
+      "text": "the intersection of segment c-d and segment d-e",
+      "line": 2,
+      "column": 5
+    },
+    "name": "x"
+  },
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "unknown",
+        "name": "foo"
+      },
+      {
+        "type": "unknown",
+        "name": "bar"
+      }
+    ],
+    "which": null,
+    "source": {
+      "text": "the intersection of foo, bar",
+      "line": 3,
+      "column": 5
+    },
+    "name": "x"
+  },
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "circle",
+        "name": "a"
+      },
+      {
+        "type": "line",
+        "name": "b"
+      }
+    ],
+    "which": {
+      "op": "not",
+      "args": [
+        "x"
+      ]
+    },
+    "source": {
+      "text": "the intersection of circle a and line b that isn't x",
+      "line": 5,
+      "column": 5
+    },
+    "name": "y"
+  },
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "circle",
+        "name": "a"
+      },
+      {
+        "type": "line",
+        "name": "b"
+      }
+    ],
+    "which": {
+      "op": "not",
+      "args": [
+        "x"
+      ]
+    },
+    "source": {
+      "text": "the intersection of circle a and line b that is not x",
+      "line": 6,
+      "column": 5
+    },
+    "name": "y"
+  },
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "circle",
+        "name": "a"
+      },
+      {
+        "type": "line",
+        "name": "b"
+      }
+    ],
+    "which": {
+      "op": "on",
+      "args": [
+        {
+          "type": "line",
+          "name": "L"
+        }
+      ]
+    },
+    "source": {
+      "text": "the intersection of circle a and line b that is on line L",
+      "line": 7,
+      "column": 5
+    },
+    "name": "y"
+  }
+]

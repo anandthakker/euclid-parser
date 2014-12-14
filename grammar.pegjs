@@ -1,81 +1,143 @@
 {
-  function withName(obj, name) {
+  // preprocess: 
+  // normalize whitespace to single space / single newline
+  
+  function named(obj, name) {
     obj.name = name;
+    return obj;
+  }
+  
+  /* annotate the given object with source info */
+  function o(obj) {
+    obj.source = {
+      text: text(),
+      line: line(),
+      column: column()
+    }
     return obj;
   }
 }
 
-start
-= decl*
+start = r:declaration_list [\n ]* { return r; }
 
-decl
-= (let?) name:varname be obj:object [.\n]* { return withName(obj, name); }
-  / draw obj:object name:(and call it name:varname {return name;})? [.\n]* { return withName(obj, name); }
+/*
+Delcarations are the top-level items -- the 'sentences' of
+the grammar.
+*/
+declaration_list = head:declaration tail:([\n ]+ d:declaration {return d;})*
+{ return [head].concat(tail) } 
+declaration =
+comment
+/
+('let'i _)? name:variable _ ('be'i/'equal'i/'=') _ obj:object_literal 
+{ return named(obj, name) }
+/
+'draw'i _ obj:object_literal name:(_ name:called {return name;})?
+{ return named(obj, name) }
 
-object = point / object2d
+comment = '#' s? val:$([^\n]*) { return {type: 'comment', value: val} }
 
-point
-= point_literal / intersection
 
-point_literal = ((the/a)? t_point)? [ ]*"("[ ]* x:number [ ]*","[ ]* y:number [ ]*")"[ ]* 
-  { return {type: 'point', x:x, y:y}; }
+/* Objects are the 'nouns' for declarations. */
+object_literal = point_literal / object_2d_literal / intersection
+object_2d_literal = circle_literal / line_literal
+object_2d_reference = circle_reference / line_reference
 
-object2d = circle / line / segment
 
-circle = (the / a) t_circle 
-  (centered) center:varname 
-  (containing) boundaryPoint:varname
-  { return {type: 'circle', center: center, boundaryPoint: boundaryPoint }; }
+/* Points */
+point = point_reference / point_literal / intersection
+point_reference 'the name of a point' = 
+(athe 'point'i s*)? name:variable
+{ return {type: 'point', name:name} }
+point_literal '(x,y)' = 
+(athe 'point'i s*)?
+'('s? x:number s?','s? y:number s?')'
+{ return o({type: 'point',x: x,y: y}) }
 
-line = (the / a) t_line
-line:(
-  (from p1:varname to p2:varname { return {type: 'line', p1: p1, p2: p2 }; })
-  / (containing/(determined by) p1:varname and p2:varname { return {type: 'line', p1: p1, p2: p2 }; })
-  ) { return line; }
-  
-segment = (the / a) t_segment
-seg:(
-  (from p1:varname to p2:varname { return {type: 'segment', p1: p1, p2: p2 }; })
-  / (containing/(determined by)/([ ]*"with endpoints"[ ]*) p1:varname and p2:varname { return {type: 'segment', p1: p1, p2: p2 }; })
-  ) { return seg; }
-  
 
-intersection = 
-  (a/the) t_intersection of o1:varname (and) o2:varname
-  which:condition?
-  { return {type: 'intersection', o1: o1, o2: o2, which: which}; }
+/* Circles */
+circle = circle_reference / circle_literal
+circle_reference 'name of a circle' =
+'circle'i _ name:variable
+{ return {type: 'circle', name: name} }
+circle_literal 'circle definition' =
+athe 'circle'i _
+c1:circle_criterion _ ('and'i _)? c2:circle_criterion
+{
+  if(c1.type === c2.type) { expected('a center and a point contained by the circle') }
+  var ret = o({type: 'circle'});
+  ret[c1.type] = c1.point;
+  ret[c2.type] = c2.point;
+  return ret;
+}
 
-condition = that is cond:(
-    not varname
-    / on varname
-  ) { return { op: cond[0], args: [cond[1]] } }
+circle_criterion =
+centeredat _ center:point { return {type: 'center', point: center} }
+/
+through _ point:point { return {type: 'boundaryPoint', point: point } }
 
-/* tokens */
-a =   [ ]* r:("a"i/"an"i)[ ]* { return r; }
-be =  [ ]* r:("="/"be"i/"equal"i)[ ]* { return r; }
-by =  [ ]* r:"by"i[ ]* { return r; }
-is =  [ ]* r:"is"i[ ]+ { return r; }
-it =  [ ]* r:"it"i[ ]+ { return r; }
-of =  [ ]* r:"of"i[ ]* { return r; }
-on =  [ ]* r:"on"i[ ]* { return r; }
-to =  [ ]* r:"to"i[ ]* { return r; }
-and = [ ]* r:"and"i[ ]* { return r; }
-let = [ ]* r:("let"i)[ ]* { return r; }
-not = [ ]* r:("not"i)[ ]* { return r; }
-the = [ ]* r:"the"i[ ]* { return r; }
-call = [ ]* r:"call"i[ ]* { return r; }
-draw = [ ]* r:"draw"i[ ]* { return r; }
-from = [ ]* r:"from"i[ ]* { return r; }
-that = [ ]* r:("that"i)[ ]* { return r; }
-centered = [ ]* r:("with center"i/"centered at"i)[ ]* { return r; }
-containing = [ ]* r:("containing"i)[ ]* { return r; }
-determined = [ ]* r:("defined"i/"determined"i) { return r; }
 
-t_intersection = [ ]*"intersection"i[ ]*
-t_segment = [ ]*"segment"i[ ]*
-t_circle = [ ]*"circle"i[ ]*
-t_line = [ ]*"line"i[ ]*
-t_point = [ ]*"point"i[ ]*
+/* Lines & Segments */
+line = line_reference / line_literal
+line_reference 'the name of a line or segment' =
+// line p1-p2
+athe type:lineorseg _ p1:point_reference '-' p2:point_reference
+{ return {type: 'line', points: [p1, p2]} }
+/
+type:lineorseg _ name:variable
+{ return {type: type, name: name} }
+line_literal 'line definition' =
+athe type:lineorseg _
+points:two_points
+{ return o({type: type, points: points}) }
 
-number "number" = digits:[0-9\.\-]+ { return parseInt(digits.join(""), 10); }
-varname "varname" = (the? (t_segment/t_circle/t_line/t_point))? chars:[a-zA-Z0-9]+ { return chars.join(''); }
+lineorseg = 'line segment'i/'segment'i/line:'line'i
+{return (line === 'line') ? 'line' : 'segment' }
+two_points =
+'from'i _ p1:point _ 'to'i _ p2:point { return [p1,p2]; }
+/
+(through/'determined by'i/'between'i) _
+p1:point ((_ 'and'i _)/(s*','s*)) p2:point { return [p1, p2]; }
+
+
+
+/* Intersection points */
+
+
+intersection =
+athe 'intersection of'i _
+objects:intersection_objects
+which:(_ c:intersection_condition { return c;} )?
+{return o({type: 'intersection', objects:objects, which: which});}
+
+intersection_objects =
+o1:object_2d_reference ((_ 'and'i _)/(s*','s*)) o2:object_2d_reference
+{ return [o1, o2] }
+/
+o1:variable ((_ 'and'i _)/(s*','s*)) o2:variable
+{ return [{type:'unknown',name:o1},{type:'unknown',name:o2}]; }
+
+
+intersection_condition = 
+'that'i _ isnt _ name: variable { return {op:'not', args:[name]} }
+/
+'that is on'i _ obj:object_2d_reference { return {op: 'on', args:[obj]} }
+
+
+
+/* Synonyms */
+called = ('and call it'i/'called'i/'named'i) _ name:variable
+{ return name; }
+centeredat = 'with center'i/'centered at'i
+article = ('a'/'an'/'the')
+through = ('through'i/'containing'i)
+isnt = ("isn't"i/'isnt'i/'is not'i)
+
+/* Shorthand */
+athe = (article _)?
+s 'whitespace character' = ' '
+_ 'whitespace' = s+
+
+/* Primitives */
+number 'number' = digits:[0-9\.\-]+ { return parseInt(digits.join(""), 10); }
+variable 'variable name' = chars:[a-zA-Z0-9]+ { return chars.join(''); }

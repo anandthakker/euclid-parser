@@ -1,0 +1,159 @@
+[
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "a line from a to b",
+      "line": 1,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "x": 1,
+        "y": 2,
+        "source": {
+          "text": "(1,2)",
+          "line": 2,
+          "column": 17
+        }
+      },
+      {
+        "type": "point",
+        "x": 3,
+        "y": 2,
+        "source": {
+          "text": "(3, 2)",
+          "line": 2,
+          "column": 26
+        }
+      }
+    ],
+    "source": {
+      "text": "a line from (1,2) to (3, 2)",
+      "line": 2,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the line through a and b",
+      "line": 3,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the line containing a and b",
+      "line": 4,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "the line determined by a and b",
+      "line": 5,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "a"
+      },
+      {
+        "type": "point",
+        "name": "b"
+      }
+    ],
+    "source": {
+      "text": "line between a and b",
+      "line": 6,
+      "column": 5
+    },
+    "name": "g"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "x": 10,
+        "y": 10,
+        "source": {
+          "text": "(10,10)",
+          "line": 7,
+          "column": 18
+        }
+      },
+      {
+        "type": "point",
+        "x": 10,
+        "y": 20,
+        "source": {
+          "text": "(10,20)",
+          "line": 7,
+          "column": 26
+        }
+      }
+    ],
+    "source": {
+      "text": "line through (10,10),(10,20)",
+      "line": 7,
+      "column": 5
+    },
+    "name": "g"
+  }
+]

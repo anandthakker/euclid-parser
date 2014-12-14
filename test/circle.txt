@@ -1,0 +1,4 @@
+draw circle through (2,3) centered at a
+let f = the circle centered at (2,3) through b
+draw a circle containing (2,3) centered at a
+f = a circle centered at (2,3) containing b
