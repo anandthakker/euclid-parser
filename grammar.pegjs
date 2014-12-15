@@ -45,7 +45,7 @@ object_2d_reference = circle_reference / line_reference
 
 
 /* Points */
-point = point_reference / point_literal / intersection
+point =  point_literal / intersection / point_reference
 point_reference 'the name of a point' = 
 (athe 'point'i s*)? name:variable
 { return {type: 'point', name:name} }

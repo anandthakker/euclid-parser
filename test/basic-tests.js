@@ -23,6 +23,7 @@ test('parsing line declrataions', testFor('line'));
 test('parsing line segment declarations', testFor('segment'));
 test('parsing intersection declarations', testFor('intersection'));
 test('parsing comments and skipping blank lines', testFor('comment'));
+test('parsing inline object declarations', testFor('inline'));
 
 test('declarations can end with a period', function(t) {
   t.doesNotThrow(function() {parser.parse('let a = (1,0).');})

@@ -1,0 +1,142 @@
+[
+  {
+    "type": "intersection",
+    "objects": [
+      {
+        "type": "line",
+        "points": [
+          {
+            "type": "point",
+            "name": "x"
+          },
+          {
+            "type": "point",
+            "name": "y"
+          }
+        ]
+      },
+      {
+        "type": "line",
+        "points": [
+          {
+            "type": "point",
+            "name": "u"
+          },
+          {
+            "type": "point",
+            "name": "v"
+          }
+        ]
+      }
+    ],
+    "which": null,
+    "source": {
+      "text": "intersection of line x-y and line u-v",
+      "line": 1,
+      "column": 5
+    },
+    "name": "a"
+  },
+  {
+    "type": "line",
+    "points": [
+      {
+        "type": "point",
+        "name": "q"
+      },
+      {
+        "type": "intersection",
+        "objects": [
+          {
+            "type": "line",
+            "points": [
+              {
+                "type": "point",
+                "name": "x"
+              },
+              {
+                "type": "point",
+                "name": "y"
+              }
+            ]
+          },
+          {
+            "type": "line",
+            "points": [
+              {
+                "type": "point",
+                "name": "u"
+              },
+              {
+                "type": "point",
+                "name": "v"
+              }
+            ]
+          }
+        ],
+        "which": null,
+        "source": {
+          "text": "the intersection of line x-y and line u-v",
+          "line": 2,
+          "column": 28
+        }
+      }
+    ],
+    "source": {
+      "text": "the line joining q and the intersection of line x-y and line u-v",
+      "line": 2,
+      "column": 5
+    },
+    "name": "b"
+  },
+  {
+    "type": "circle",
+    "source": {
+      "text": "the circle centered at the intersection of line x-y and line u-v through z",
+      "line": 3,
+      "column": 5
+    },
+    "center": {
+      "type": "intersection",
+      "objects": [
+        {
+          "type": "line",
+          "points": [
+            {
+              "type": "point",
+              "name": "x"
+            },
+            {
+              "type": "point",
+              "name": "y"
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "type": "point",
+              "name": "u"
+            },
+            {
+              "type": "point",
+              "name": "v"
+            }
+          ]
+        }
+      ],
+      "which": null,
+      "source": {
+        "text": "the intersection of line x-y and line u-v",
+        "line": 3,
+        "column": 28
+      }
+    },
+    "boundaryPoint": {
+      "type": "point",
+      "name": "z"
+    },
+    "name": "c"
+  }
+]

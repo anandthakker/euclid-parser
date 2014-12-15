@@ -802,11 +802,11 @@ module.exports = (function() {
     function peg$parsepoint() {
       var s0;
 
-      s0 = peg$parsepoint_reference();
+      s0 = peg$parsepoint_literal();
       if (s0 === peg$FAILED) {
-        s0 = peg$parsepoint_literal();
+        s0 = peg$parseintersection();
         if (s0 === peg$FAILED) {
-          s0 = peg$parseintersection();
+          s0 = peg$parsepoint_reference();
         }
       }
 

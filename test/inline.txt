@@ -1,0 +1,3 @@
+a = intersection of line x-y and line u-v
+b = the line joining q and the intersection of line x-y and line u-v
+c = the circle centered at the intersection of line x-y and line u-v through z
