@@ -1,4 +1,4 @@
-euclid-parser
+euclid-parser [![Build Status](https://travis-ci.org/anandthakker/euclid-parser.svg?branch=master)](https://travis-ci.org/anandthakker/euclid-parser)
 =============
 
 Parse geometry proof language for diagram-building instructions.  Built using
